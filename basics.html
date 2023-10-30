@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HTML Basics</title>
+
+    <link href="styles/style.css" rel="stylesheet" />
+    <script src="scripts/script.js"></script>
+    <style>
+      main section p#paras {
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h2>HTML Basics</h2>
+      <marquee>Hello</marquee>
+    </header>
+    <main>
+      <section style="border: 2px dotted red; padding: 30px">
+        <h1>Heading 1</h1>
+        <p style="color: yellow" class="paras" id="paras">
+          This is a <i>paragraph</i>
+        </p>
+        <h2 class="head">Heading 2</h2>
+        <p>This is a <b>paragraph</b></p>
+        <h3>Heading 3</h3>
+        <p>This is a <u>paragraph</u></p>
+      </section>
+      <div style="border: 2px solid red; padding: 30px">
+        <h4 class="head">Heading 4</h4>
+        <p>This is a <strong>paragraph</strong></p>
+        <h5>Heading 5</h5>
+        <p>
+          This is a <span style="font-weight: 700; color: red">paragraph</span>
+        </p>
+        <h6>Heading 6</h6>
+        <p>
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's standard dummy text ever
+          since the 1500s, when an unknown printer took a galley of type and
+          scrambled it to make a type specimen book. It has survived not only
+          five centuries, but also the leap into electronic typesetting,
+          remaining essentially unchanged. It was popularised in the 1960s with
+          the release of Letraset sheets containing Lorem Ipsum passages, and
+          more recently with desktop publishing software like Aldus PageMaker
+          including versions of Lorem Ipsum.
+        </p>
+      </div>
+
+      <button style="border: 1px solid green">Click Me</button>
+
+      <form action="" method="">
+        <input type="text" />
+        <input type="password" />
+        <input type="submit" />
+      </form>
+
+      <ul>
+        <li>Teja</li>
+        <li>Sai</li>
+        <li>Vinay</li>
+        <li>Lavanya</li>
+      </ul>
+
+      <img src="https://placehold.it/200x200" width="100px" height="100px" />
+
+      <video src=""></video>
+    </main>
+    <footer>
+      <a href="@mailto:emailid@gmail.com">Contact Us</a>
+      <a href="about.html">About Us</a>
+    </footer>
+
+    <script>
+      const marquee = document.querySelector("marquee");
+      setInterval(() => {
+        // marquee.innerHTML = new Date();
+      }, 1000);
+    </script>
+
+    <script src="scripts/script.js"></script>
+  </body>
+</html>

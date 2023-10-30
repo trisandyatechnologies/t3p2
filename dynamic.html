@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        max-width: 320px;
+        margin: 0 auto;
+      }
+
+      form > * {
+        height: 40px;
+      }
+
+      form button {
+        background-color: blue;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 style="color: red">Dynamic HTML</h2>
+    <div id="root">
+      <!-- Dynamic HTML starts here -->
+    </div>
+    <script>
+      const rootEl = document.getElementById("root"); // queries the document using id
+      console.log({ rootEl });
+      const formEl = document.createElement("form"); // creates element with given name
+      rootEl.appendChild(formEl); // appends the child to parent
+
+      const emailInput = document.createElement("input"); // creates element with given name
+      emailInput.setAttribute("type", "text"); // sets attribute to the element
+      emailInput.setAttribute("placeholder", "Enter email");
+      formEl.appendChild(emailInput);
+
+      const passwordInput = document.createElement("input");
+      passwordInput.setAttribute("type", "password");
+      passwordInput.setAttribute("placeholder", "Enter password");
+      formEl.appendChild(passwordInput);
+
+      const submitButton = document.createElement("button");
+      submitButton.innerHTML = "Submit";
+
+      submitButton.addEventListener("click", function (event) {
+        event.preventDefault();
+        submitButton.innerHTML = "Submitting...";
+        submitButton.style.backgroundColor = "green";
+      });
+
+      formEl.appendChild(submitButton);
+    </script>
+  </body>
+</html>

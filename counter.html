@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      button {
+        margin: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <!-- Decrement Button <button> -->
+      <!-- Counter Display <span></span> -->
+      <!-- Increment Button <button> -->
+    </div>
+    <script>
+      const root = document.getElementById("root");
+
+      let counter = 0;
+
+      const decrementBtn = document.createElement("button");
+      decrementBtn.innerHTML = "-";
+      decrementBtn.addEventListener("click", () => {
+        if (counter === 0) {
+          alert("Count cannot be less than 0!");
+          return;
+        }
+        counter = counter - 1;
+        displayElement.innerHTML = counter;
+      });
+      root.appendChild(decrementBtn);
+
+      const displayElement = document.createElement("span");
+      displayElement.innerHTML = counter;
+      root.appendChild(displayElement);
+
+      const incrementBtn = document.createElement("button");
+      incrementBtn.innerHTML = "+";
+      incrementBtn.addEventListener("click", () => {
+        if (counter === 5) {
+          alert("Count cannot be more than 5!");
+          return;
+        }
+        counter = counter + 1;
+        displayElement.innerHTML = counter;
+      });
+      root.appendChild(incrementBtn);
+    </script>
+  </body>
+</html>

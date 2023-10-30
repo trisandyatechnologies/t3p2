@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .parent,
+      .child {
+        border: 1px solid grey;
+        padding: 16px;
+      }
+
+      .parent {
+        display: flex;
+        width: 100%;
+        gap: 8px;
+        justify-content: space-between;
+        flex-direction: row;
+        height: 400px;
+        align-items: center;
+      }
+
+      .child {
+        background-color: #ccc;
+        height: 100%;
+      }
+
+      .child div {
+        font-size: 40px;
+        border: 1px solid red;
+      }
+
+      .child:first-child {
+        background-color: green;
+      }
+
+      .child:last-child {
+        flex: 1;
+        background-color: yellow;
+      }
+
+      .items {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+
+      .item {
+        min-width: 250px;
+        border: 1px solid grey;
+        height: 250px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>About Us</h1>
+    <div class="parent">
+      <div class="child">
+        <div style="width: 400px">400</div>
+      </div>
+      <div class="child">
+        <div style="width: 200px">200</div>
+      </div>
+      <div class="child">
+        <div style="width: 300px">300</div>
+      </div>
+    </div>
+
+    <div class="items">
+      <div class="item">item</div>
+      <div class="item">item</div>
+      <div class="item">item</div>
+      <div class="item">item</div>
+      <div class="item">item</div>
+      <div class="item">item</div>
+      <div class="item">item</div>
+      <div class="item">item</div>
+      <div class="item">item</div>
+      <div class="item">item</div>
+      <div class="item">item</div>
+      <div class="item">item</div>
+      <div class="item">item</div>
+      <div class="item">item</div>
+    </div>
+    <script src="scripts/script.js"></script>
+  </body>
+</html>
