@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo App</title>
+    <style>
+      .todo-list > div {
+        display: flex;
+        border-bottom: 1px solid gray;
+      }
+
+      div input[type="checkbox"] {
+        margin-right: 16px;
+      }
+
+      .todo-list div p {
+        flex: 1;
+      }
+      .todo-list div button {
+        border: none;
+        background: transparent;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      const root = document.querySelector("#root");
+
+      const addTodoInput = document.createElement("input");
+
+      const addTodoButton = document.createElement("button");
+      addTodoButton.innerHTML = "Add";
+      addTodoButton.addEventListener("click", () => {
+        const todoItem = createTodo(addTodoInput.value);
+        todoList.appendChild(todoItem);
+      });
+
+      root.append(addTodoInput, addTodoButton);
+
+      const todoList = document.createElement("div");
+      todoList.classList.add("todo-list");
+      root.appendChild(todoList);
+
+      function createTodo(inputText) {
+        const todoDiv = document.createElement("div");
+
+        const checkbox = document.createElement("input");
+        checkbox.setAttribute("type", "checkbox");
+        todoDiv.appendChild(checkbox);
+        checkbox.addEventListener("click", (e) => {
+          if (checkbox.checked) {
+            p.style.textDecoration = "line-through";
+          } else {
+            p.style.textDecoration = "";
+          }
+        });
+
+        const p = document.createElement("p");
+        p.innerHTML = inputText;
+        todoDiv.appendChild(p);
+
+        const deleteButton = document.createElement("button");
+        deleteButton.innerHTML = "X";
+        todoDiv.appendChild(deleteButton);
+        deleteButton.addEventListener("click", () => {
+          todoDiv.parentElement.removeChild(todoDiv);
+        });
+
+        return todoDiv;
+      }
+    </script>
+  </body>
+</html>
