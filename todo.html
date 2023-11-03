@@ -27,6 +27,13 @@
   <body>
     <div id="root"></div>
     <script>
+      const TODOS = [];
+      /**
+       * {
+       *  text: 'Hi',
+       *  isDone: false
+       * }
+       * */
       const root = document.querySelector("#root");
 
       const addTodoInput = document.createElement("input");
@@ -44,7 +51,17 @@
       todoList.classList.add("todo-list");
       root.appendChild(todoList);
 
-      function createTodo(inputText) {
+      function createTodo(inputText, isDone) {
+        // Data ----
+
+        const newTodo = {
+          text: inputText,
+          isDone: isDone ?? false,
+        };
+        TODOS.push(newTodo);
+
+        // End Data ----
+
         const todoDiv = document.createElement("div");
 
         const checkbox = document.createElement("input");
@@ -53,14 +70,22 @@
         checkbox.addEventListener("click", (e) => {
           if (checkbox.checked) {
             p.style.textDecoration = "line-through";
+            newTodo.isDone = true;
           } else {
             p.style.textDecoration = "";
+            newTodo.isDone = false;
           }
+          persistTodos(TODOS);
         });
 
         const p = document.createElement("p");
         p.innerHTML = inputText;
         todoDiv.appendChild(p);
+
+        if (isDone) {
+          checkbox.checked = true;
+          p.style.textDecoration = "line-through";
+        }
 
         const deleteButton = document.createElement("button");
         deleteButton.innerHTML = "X";
@@ -69,8 +94,24 @@
           todoDiv.parentElement.removeChild(todoDiv);
         });
 
+        persistTodos(TODOS);
+
         return todoDiv;
       }
+
+      function persistTodos(todos) {
+        localStorage.setItem("todos", JSON.stringify(todos));
+      }
+
+      function loadExistingTodos() {
+        const existingTodos = JSON.parse(localStorage.getItem("todos")) ?? [];
+        existingTodos.forEach((todo) => {
+          const todoItem = createTodo(todo.text, todo.isDone);
+          todoList.appendChild(todoItem);
+        });
+      }
+
+      loadExistingTodos();
     </script>
   </body>
 </html>
