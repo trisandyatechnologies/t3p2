@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Instagram</title>
+    <!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <style>
+      div.col {
+        border: 1px solid grey;
+      }
+      ul.collection {
+        margin: 0;
+      }
+      .collection .collection-item.avatar {
+        min-height: 64px;
+      }
+
+      .author-name {
+        font-weight: 600;
+      }
+
+      .card .card-content {
+        padding: 8px;
+      }
+
+      .card-content .icons i {
+        margin-right: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="row">
+      <div class="col s2">
+        <h1>Left</h1>
+      </div>
+      <div class="col s6">
+        <h1>Main</h1>
+        <div id="posts">
+          <!-- Posts will come here dynamically -->
+          <!-- <div class="card">
+            <ul class="collection">
+              <li class="collection-item avatar">
+                <img
+                  src="https://materializecss.com/images/yuna.jpg"
+                  alt=""
+                  class="circle"
+                />
+                <span class="title">Author Name</span>
+                <p>Location</p>
+                <a href="#!" class="secondary-content"
+                  ><i class="material-icons">more_vert</i></a
+                >
+              </li>
+            </ul>
+            <div class="card-image waves-effect waves-block waves-light">
+              <img
+                class="activator"
+                src="https://materializecss.com/images/office.jpg"
+              />
+            </div>
+            <div class="card-content">
+              <p class="icons activator grey-text text-darken-4">
+                <i class="material-icons">favorite_border</i>
+                <i class="material-icons">comment</i>
+                <i class="material-icons">send</i>
+
+                <i class="material-icons right">bookmark_border</i>
+              </p>
+              <span class="activator grey-text text-darken-4">84 likes</span>
+              <p>
+                <span class="author-name">Author Name</span> What a win #india
+                #cwc23
+              </p>
+              <p class="activator grey-text text-darken-4">
+                View all 295 comments
+              </p>
+            </div>
+          </div> -->
+        </div>
+      </div>
+      <div class="col s4">
+        <h1>Right</h1>
+      </div>
+    </div>
+    <script>
+      const POSTS = [
+        {
+          // Post 1
+          author: {
+            id: "pkpl",
+            image: "https://materializecss.com/images/yuna.jpg",
+          },
+          location: "Pedakallepalli",
+          images: [
+            "https://placehold.it/400x400",
+            "https://placehold.it/400x400",
+            "https://placehold.it/400x400",
+            "https://placehold.it/400x400",
+          ],
+          like_count: 5,
+          caption: "#diwali #celebrations 🙌",
+          link: "https://www.instagram.com/p/CzkexXNJrwQ/?utm_source=ig_web_copy_link",
+          date: "2023-11-14T06:11:48.691Z",
+          comments: [
+            {
+              id: "pkpl2",
+              text: "I commented",
+              date: "2023-11-14T06:11:58.691Z",
+              like_count: 4,
+            },
+            {
+              id: "pkpl3",
+              text: "I commented 2nd",
+              date: "2023-11-14T06:14:58.691Z",
+              like_count: 2, // this
+            },
+            {
+              id: "pkpl4",
+              text: "I commented last",
+              date: "2023-11-14T06:16:58.691Z",
+            },
+          ],
+        },
+        {
+          // Post 2
+          author: {
+            id: "pkpl",
+            image: "https://chcbdjhcbsd.jpg",
+          },
+          location: "Pedakallepalli",
+          images: [
+            "https://chcbdjhcbsd.jpg",
+            "https://chcbdjhcbsd.jpg",
+            "https://chcbdjhcbsd.jpg", // this
+            "https://chcbdjhcbsd.jpg",
+          ],
+          like_count: 5,
+          caption: "#diwali #celebrations 🙌",
+          link: "https://www.instagram.com/p/CzkexXNJrwQ/?utm_source=ig_web_copy_link",
+          date: "2023-11-14T06:11:48.691Z",
+          comments: [
+            {
+              id: "pkpl2",
+              text: "I commented",
+              date: "2023-11-14T06:11:58.691Z",
+              like_count: 4,
+            },
+            {
+              id: "pkpl3",
+              text: "I commented 2nd",
+              date: "2023-11-14T06:14:58.691Z",
+              like_count: 2,
+            },
+            {
+              id: "pkpl4",
+              text: "I commented last",
+              date: "2023-11-14T06:16:58.691Z",
+            },
+          ],
+        },
+        {
+          // Post 3
+          author: {
+            id: "pkpl",
+            image: "https://chcbdjhcbsd.jpg",
+          },
+          location: "Pedakallepalli",
+          images: [
+            "https://chcbdjhcbsd.jpg",
+            "https://chcbdjhcbsd.jpg",
+            "https://chcbdjhcbsd.jpg",
+            "https://chcbdjhcbsd.jpg",
+          ],
+          like_count: 5,
+          caption: "#diwali #celebrations 🙌",
+          link: "https://www.instagram.com/p/CzkexXNJrwQ/?utm_source=ig_web_copy_link",
+          date: "2023-11-14T06:11:48.691Z",
+          comments: [
+            {
+              id: "pkpl2",
+              text: "I commented",
+              date: "2023-11-14T06:11:58.691Z",
+              like_count: 4,
+            },
+            {
+              id: "pkpl3",
+              text: "I commented 2nd",
+              date: "2023-11-14T06:14:58.691Z",
+              like_count: 2,
+            },
+            {
+              id: "pkpl4",
+              text: "I commented last",
+              date: "2023-11-14T06:16:58.691Z",
+            },
+          ],
+        },
+      ];
+      const postsDiv = document.querySelector("#posts");
+
+      function createPost(post) {
+        const postCard = document.createElement("div");
+        postCard.classList.add("card");
+
+        // Collection
+        const collection = document.createElement("ul");
+        collection.classList.add("collection");
+
+        const li = document.createElement("li");
+        li.classList.add("collection-item", "avatar");
+        collection.appendChild(li);
+
+        const authorImage = document.createElement("img");
+        authorImage.setAttribute("src", post.author.image);
+        authorImage.classList.add("circle");
+
+        const authorName = document.createElement("span");
+        authorName.classList.add("title");
+        authorName.innerHTML = post.author.id;
+
+        const location = document.createElement("p");
+        location.innerHTML = post.location;
+
+        li.append(authorImage, authorName, location);
+
+        //End  Collection
+
+        const cardImage = document.createElement("div");
+        cardImage.classList.add(
+          "card-image",
+          "waves-effect",
+          "waves-block",
+          "waves-light"
+        );
+
+        const cardContent = document.createElement("div");
+        cardContent.classList.add("card-content");
+
+        postCard.append(collection, cardImage, cardContent);
+
+        return postCard;
+      }
+
+      POSTS.forEach((post) => {
+        const postCard = createPost(post);
+        postsDiv.appendChild(postCard);
+      });
+    </script>
+  </body>
+</html>
