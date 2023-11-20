@@ -17,7 +17,7 @@
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <style>
-      div.col {
+      div.col:not(.input-field) {
         border: 1px solid grey;
       }
       ul.collection {
@@ -88,6 +88,45 @@
               </p>
             </div>
           </div> -->
+
+          <div class="new-post">
+            <!-- Modal Trigger -->
+            <a class="waves-effect waves-light btn modal-trigger" href="#modal1"
+              >Modal</a
+            >
+
+            <!-- Modal Structure -->
+            <div id="modal1" class="modal">
+              <div class="modal-content">
+                <h4>New Post/Reel</h4>
+                <form class="col s12">
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <input placeholder="Image" type="text" class="validate" />
+                      <label for="first_name">Image URL</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <textarea
+                        id="textarea1"
+                        class="materialize-textarea"
+                      ></textarea>
+                      <label for="textarea1">Caption</label>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <a
+                  href="#!"
+                  class="modal-close waves-effect waves-green btn-flat"
+                  onclick="submitPost('https://placehold.it/400x400', 'India won the World cup, hurray #india #cwc2023 #enjoy #pandago')"
+                  >Submit</a
+                >
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="col s4">
@@ -257,6 +296,29 @@
         const postCard = createPost(post);
         postsDiv.appendChild(postCard);
       });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        var elems = document.querySelectorAll(".modal");
+        var instances = M.Modal.init(elems);
+      });
+
+      function submitPost(imageURL, caption) {
+        const newPost = createPost({
+          author: {
+            id: "pkpl",
+            image: "https://materializecss.com/images/yuna.jpg",
+          },
+          location: "Pedakallepalli",
+          images: [imageURL],
+          like_count: 0,
+          caption: caption,
+          link: "https://www.instagram.com/p/CzkexXNJrwQ/?utm_source=ig_web_copy_link",
+          date: new Date().toISOString(),
+          comments: [],
+        });
+
+        postsDiv.appendChild(newPost);
+      }
     </script>
   </body>
 </html>

@@ -5,6 +5,7 @@
  *
  * let, const, for, while, if, else, else if, switch,
  * class, function, return, break, continue, true, false, do,
+ * Array, Object,
  */
 
 /**
@@ -24,7 +25,7 @@ const STUDENT_COUNT = 2; // Number
  * Arrays
  * Series of index based values
  * Code Style: Based on the usage
- * Denoted by Square Braces
+ * Denoted by Square Braces [] | new Array();
  * Accessed using index
  */
 const studentNames = ["Pranav", "Jhansi", "Vinay"]; // Array of strings
@@ -45,7 +46,7 @@ console.log({ studentNames });
  * Objects
  * Key Value pairs
  * Code Style: Based on the usage
- * Denoted by Curley Brances {}
+ * Denoted by Curley Brances {} | new Object()
  * Accessed using keys
  */
 const studentPranav = {
