@@ -128,3 +128,113 @@ familyTree[0].children[0].children[1].name; // "Teja"
  * 2. Object - {} - key based
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object
  */
+
+/**
+ * Loops
+ */
+
+/**
+ * For (let i = 0; i < 5; i++)
+ */
+
+// Print first 10 numbers
+for (let i = 1; i < 10; i--) {
+  console.log(i);
+  if (i === -10) {
+    break;
+  }
+}
+
+// Nested For Loops
+for (let i = 0; i < 5; i++) {
+  // 5 times
+
+  for (let j = 0; j < 5; j++) {
+    // 5 times
+    console.log("inner"); // 5 x 5 times
+  }
+
+  if (i % 2 === 0) {
+    console.log("even"); // 3 times
+  }
+  console.log("outer"); // 5 times
+}
+
+/**
+ * While (condition)
+ */
+
+let i = 1;
+while (i <= 10) {
+  console.log(i);
+  i++;
+}
+
+//While _/\_
+
+/**
+ * Functions
+ * names should be camelCase()
+ */
+
+let x = 2;
+let y = 3;
+
+let z = x + y; // Expression [LHS = RHS]
+
+z = add(x, y); // x and y are arguments, in function call
+
+print(z); // z is argument, function call without assignment
+
+// Performs a task and returns the output
+function add(a, b) {
+  // a and b are parameters
+  return a + b;
+}
+
+// Performs some task (printing)
+function print(...args) {
+  console.log(...args);
+}
+
+function printFirst10Numbers() {
+  let l = 1; // function scoped variable
+  for (; i <= 10; i++) {
+    //print(i);
+    let b = 10; // for loop block scoped.
+    console.log(i);
+  }
+}
+
+printFirst10Numbers(); // function without parameters
+
+/**
+ * Types of functions
+ */
+
+//1. Named function
+function addThis(a, b) {
+  return a + b;
+}
+addThis(2, 3); // 5
+
+//2. Fat arrow functions
+const addThis2 = (a, b) => a + b;
+addThis2(2, 3); // 5
+
+//3. Anonymous function
+document.addEventListener("click", () => {
+  // Anonymous function or callback
+});
+// Fires when click happened on the document (html)
+
+//4. Function Expressions
+const addThis3 = function (a, b) {
+  return a + b;
+};
+addThis3(2, 3); // 5
+
+//5. IIFE (Immediately Invoked Function Expressions)
+(function iife() {
+  console.log("Prints without calling this function");
+})();
