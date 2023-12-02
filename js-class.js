@@ -238,3 +238,47 @@ addThis3(2, 3); // 5
 (function iife() {
   console.log("Prints without calling this function");
 })();
+
+/**
+ * Basic Programs
+ */
+const arr = [1, 2, 3, 4, 5, 6];
+console.log(arr[0]);
+console.log(arr[1]);
+console.log(arr[5]);
+
+for (let i = 0; i < arr.length; i++) {
+  if (arr[i] % 2 === 0) {
+    console.log(2);
+  } else if (arr[i] % 3 === 0) {
+    console.log(3);
+  } else {
+    console.log(1);
+  }
+}
+// 1 2 3 2 1 2
+
+arr.forEach((arrItem) => {
+  console.log(arrItem);
+});
+
+//
+let sum = 0;
+for (let i = 0; i <= arr.length; i = i + 6) {
+  sum = sum + arr[i];
+}
+
+// [0 -> 2 -> 4 -> ] [1 + 3 + 5]
+// [0 -> 3 -> ]
+// sum = 1 + 4 = 5
+
+// [0 -> 4 -> ]
+// sum = 1 + 5 = 6
+
+// [0 -> 5 -> ]
+// sum = 1 + 6 = 7
+
+// [0 -> 6 -> ]
+// sum = 1 + undefined = NaN
+
+console.log(sum);
